@@ -73,7 +73,7 @@ export type Options = {
 };
 
 export function Options(opts: Options = {}): Node {
-  const options = opts.options || []
+  const options = opts.options || [];
   return Blocks(
     Heading(emoji.tools, "Options"),
     ...options.map(Option),
