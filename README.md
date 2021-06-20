@@ -37,8 +37,8 @@ thematic parts:
 
 There are no unit tests yet, but components can be visually tested by running
 the corresponding `<name>_demo.ts` module. For example, the
-[mod.ts](permissions.ts) module may be tested by running
-`deno run mod_demo.ts` and examining the output.
+[mod.ts](permissions.ts) module may be tested by running `deno run mod_demo.ts`
+and examining the output.
 
 [ecli]: #
 [deno]: https://deno.land
