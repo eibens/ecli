@@ -33,6 +33,7 @@ thematic parts:
   with [Deno].
 - [history.ts](history.ts) defines components for outputting temporal data and
   events.
+- [help.ts](help.ts) defines components for outputting a help page.
 - [mod.ts](mod.ts) exports the above modules.
 
 There are no unit tests yet, but components can be visually tested by running
