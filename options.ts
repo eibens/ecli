@@ -72,7 +72,7 @@ export type Options = {
   options?: Option[];
 };
 
-export function Options(opts: Options): Node {
+export function Options(opts: Options = {}): Node {
   const options = opts.options || []
   return Blocks(
     Heading(emoji.tools, "Options"),
