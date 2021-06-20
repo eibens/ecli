@@ -26,6 +26,12 @@ const e2 = {
   message: messages[1],
 };
 
+const e3 = {
+  type: "unknown",
+  time: date(),
+  message: messages[2],
+};
+
 const all = types.map((type, i) => ({
   type,
   message: messages[i % messages.length],
@@ -34,26 +40,38 @@ const all = types.map((type, i) => ({
 
 log(
   Demo({
+    title: "minimal example",
+    func: History,
+    input: [{}],
+  }),
+  Demo({
     title: "single event",
     func: History,
-    input: {
+    input: [{
       events: [e1],
-    },
+    }],
+  }),
+  Demo({
+    title: "unknown type",
+    func: History,
+    input: [{
+      events: [e3],
+    }],
   }),
   Demo({
     title: "truncated time format",
     func: History,
-    input: {
+    input: [{
       timeFormatMax: "hour",
       timeFormatMin: "second",
       events: [e1, e2],
-    },
+    }],
   }),
   Demo({
     title: "all event types",
     func: History,
-    input: {
+    input: [{
       events: all,
-    },
+    }],
   }),
 );

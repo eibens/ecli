@@ -10,29 +10,30 @@ export type Event = {
 };
 
 export type History = {
-  events: Event[];
+  events?: Event[];
   types?: Record<string, Command[]>;
   timeFormatMin?: Interval;
   timeFormatMax?: Interval;
 };
 
-export function History(opts: History): Node {
+export function History(opts: History = {}): Node {
   const types = opts.types || colors;
   const timeFormat = getTimeFormat({
     min: opts.timeFormatMin,
     max: opts.timeFormatMax,
   });
-  const events: Node[] = [];
-  for (let i = 0; i < opts.events.length; i++) {
-    const prev = opts.events[i - 1];
-    events.push(Event({
+  const events = opts.events || [];
+  const items: Node[] = [];
+  for (let i = 0; i < events.length; i++) {
+    const prev = events[i - 1];
+    items.push(Event({
       types,
       timeFormat,
       prev: prev ? prev.time : undefined,
-      ...opts.events[i],
+      ...events[i],
     }));
   }
-  return Lines(...events);
+  return Lines(...items);
 }
 
 export const colors: Record<string, Command[]> = {

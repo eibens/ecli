@@ -7,19 +7,19 @@ log(
   Demo({
     func: Usage,
     title: "no permissions",
-    input: {
+    input: [{
       binary: "ecli",
       module: "https://deno.land/x/ecli/cli.ts",
-    },
+    }],
   }),
   Demo({
     func: Usage,
     title: "permissions and args",
-    input: {
+    input: [{
       binary: "ecli",
       module: "https://deno.land/x/ecli/cli.ts",
       permissions: true,
       args: Optional("options"),
-    },
+    }],
   }),
 );

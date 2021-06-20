@@ -36,10 +36,6 @@ export function Divider(): Node {
   };
 }
 
-export function Pages(...children: Node[]) {
-  return Separator(Sections("", Divider(), ""), children);
-}
-
 export function Sections(...children: Node[]) {
   return Separator("\n\n\n", children);
 }
@@ -101,13 +97,13 @@ export function Sequence(...children: Node[]): Node {
   };
 }
 
-export type Demo<O> = {
+export type Demo<O extends unknown[]> = {
   title: string;
-  func: (opts: O) => Node;
+  func: (...opts: O) => Node;
   input: O;
 };
 
-export function Demo<O>(opts: Demo<O>) {
+export function Demo<O extends unknown[]>(opts: Demo<O>) {
   return Sections(
     Lines(
       Divider(),
@@ -120,7 +116,7 @@ export function Demo<O>(opts: Demo<O>) {
         ],
       },
     ),
-    opts.func(opts.input),
+    opts.func(...opts.input),
     "",
   );
 }

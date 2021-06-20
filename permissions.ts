@@ -59,7 +59,7 @@ export function Permissions(opts: Permissions = {}): Node {
     Heading(emoji.alert, title),
     Sequence("This program uses the following Deno permissions:"),
     ...permissions.map(Permission),
-    ...(permissions.length > 1 ? [allowAll] : []),
+    allowAll,
   );
 }
 

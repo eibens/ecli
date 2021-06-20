@@ -6,16 +6,16 @@ log(
   Demo({
     title: "minimal example",
     func: Help,
-    input: {
+    input: [{
       icon: "EC",
       name: "ecli",
       description: "Does something for you.",
-    },
+    }],
   }),
   Demo({
     title: "basic example",
     func: Help,
-    input: {
+    input: [{
       icon: "EC",
       name: "ecli",
       description: "Does something for you.",
@@ -36,6 +36,6 @@ log(
           text: "An option that affects this program somehow.",
         }],
       },
-    },
+    }],
   }),
 );

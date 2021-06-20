@@ -32,35 +32,35 @@ const all: Permission[] = types.map((type) => ({
 log(
   Demo({
     func: Permissions,
-    title: "no permissions",
-    input: {},
+    title: "minimal example",
+    input: [],
   }),
   Demo({
     func: Permissions,
     title: "single permission",
-    input: {
+    input: [{
       permissions: [net],
-    },
+    }],
   }),
   Demo({
     func: Permissions,
     title: "single permission with specifier",
-    input: {
+    input: [{
       permissions: [run],
-    },
+    }],
   }),
   Demo({
     func: Permissions,
     title: "multiple permissions",
-    input: {
+    input: [{
       permissions: [net, run],
-    },
+    }],
   }),
   Demo({
     func: Permissions,
     title: "all available permissions",
-    input: {
+    input: [{
       permissions: all,
-    },
+    }],
   }),
 );

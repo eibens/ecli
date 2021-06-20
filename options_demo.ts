@@ -4,9 +4,14 @@ import { Options } from "./options.ts";
 
 log(
   Demo({
-    title: "option types",
+    title: "minimal example",
     func: Options,
-    input: {
+    input: [],
+  }),
+  Demo({
+    title: "basic example",
+    func: Options,
+    input: [{
       options: [{
         text: "A boolean flag without a value.",
         type: "flag",
@@ -25,6 +30,6 @@ log(
         name: "allow-net",
         value: "<hostname>:<port>",
       }],
-    },
+    }],
   }),
 );
