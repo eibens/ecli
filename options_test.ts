@@ -1,7 +1,4 @@
-import {
-  assertEquals,
-  assertThrows,
-} from "https://deno.land/std@0.97.0/testing/asserts.ts";
+import { assertEquals } from "https://deno.land/std@0.97.0/testing/asserts.ts";
 import { Option } from "./option.ts";
 
 Deno.test("flag", () => {
@@ -20,5 +17,3 @@ Deno.test("flag with single char", () => {
     "-f",
   );
 });
-
-Deno.test("option with value");

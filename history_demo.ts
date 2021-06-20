@@ -10,7 +10,7 @@ const messages: string[] = [
   "this is an event",
 ];
 
-function date(secondsFromNow: number = 0) {
+function date(secondsFromNow = 0) {
   return new Date(Date.now() + secondsFromNow * 1000);
 }
 
