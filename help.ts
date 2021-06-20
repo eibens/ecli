@@ -14,13 +14,17 @@ export type Help = {
 };
 
 export function Help(opts: Help): Node {
+  const title = Blocks(
+    Heading(opts.icon, opts.name),
+    opts.description,
+  );
+  const usage = opts.usage ? [Usage(opts.usage)] : [];
+  const permissions = opts.permissions ? [Permissions(opts.permissions)] : [];
+  const options = opts.options ? [Options(opts.options)] : [];
   return Sections(
-    Blocks(
-      Heading(opts.icon, opts.name),
-      opts.description,
-    ),
-    ...(opts.usage ? [Usage(opts.usage)] : []),
-    ...(opts.permissions ? [Permissions(opts.permissions)] : []),
-    ...(opts.options ? [Options(opts.options)] : []),
+    title,
+    ...usage,
+    ...permissions,
+    ...options,
   );
 }

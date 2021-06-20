@@ -4,6 +4,15 @@ import { Help } from "./help.ts";
 
 log(
   Demo({
+    title: "minimal example",
+    func: Help,
+    input: {
+      icon: "EC",
+      name: "ecli",
+      description: "Does something for you.",
+    },
+  }),
+  Demo({
     title: "basic example",
     func: Help,
     input: {
