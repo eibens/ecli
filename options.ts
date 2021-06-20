@@ -69,12 +69,13 @@ export function Option(opts: Option) {
 }
 
 export type Options = {
-  options: Option[];
+  options?: Option[];
 };
 
 export function Options(opts: Options): Node {
+  const options = opts.options || []
   return Blocks(
     Heading(emoji.tools, "Options"),
-    ...opts.options.map(Option),
+    ...options.map(Option),
   );
 }
