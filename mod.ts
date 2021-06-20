@@ -1,4 +1,3 @@
-export * from "./demo.ts";
 export * from "./text.ts";
 export * from "./log.ts";
 export * from "./permissions.ts";
