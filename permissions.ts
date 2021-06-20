@@ -21,7 +21,7 @@ export type Permission = {
   /**
    * A short description of the reason for the permission.
    */
-  description: string;
+  text: string;
 
   /**
    * The specific value for the permission.
@@ -66,7 +66,7 @@ export function Permissions(opts: Permissions = {}): Node {
 export function Permission(opts: Permission): Node {
   const isFlag = ["hrtime", "plugin"].includes(opts.type);
   return Option({
-    text: opts.description,
+    text: opts.text,
     name: "allow-" + opts.type,
     type: isFlag ? "flag" : "dual",
     value: opts.value,

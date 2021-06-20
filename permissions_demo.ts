@@ -4,13 +4,13 @@ import { Demo } from "./text.ts";
 
 const net: Permission = {
   type: "net",
-  description: "This program uses the network.",
+  text: "This program uses the network.",
 };
 
 const run: Permission = {
   type: "run",
   value: "git",
-  description: "This program does something with Git.",
+  text: "This program does something with Git.",
 };
 
 const types: PermissionType[] = [
@@ -26,7 +26,7 @@ const types: PermissionType[] = [
 const all: Permission[] = types.map((type) => ({
   type,
   specifier: `<${type}>`,
-  description: `This program may use permission type \`${type}\`.`,
+  text: `This program may use permission type \`${type}\`.`,
 }));
 
 log(
