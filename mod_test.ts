@@ -1,3 +1,1 @@
-import "./mod.ts";
-
-// TODO: write tests
+import "./mod_demo.ts";
