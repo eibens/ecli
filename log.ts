@@ -21,7 +21,7 @@ export async function logFile(file: string, ...args: Node[]): Promise<void> {
   );
 }
 
-export async function logWrite(
+export async function logWriter(
   writer: Deno.Writer,
   ...args: Node[]
 ): Promise<void> {
