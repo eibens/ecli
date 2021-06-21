@@ -54,7 +54,7 @@ export function Optional(...children: Node[]): Node {
 
 export type Option = Flag & {
   alias?: string;
-  text: string;
+  text: Node;
 };
 
 export function Option(opts: Option) {

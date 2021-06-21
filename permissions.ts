@@ -21,7 +21,7 @@ export type Permission = {
   /**
    * A short description of the reason for the permission.
    */
-  text: string;
+  text: Node;
 
   /**
    * The specific value for the permission.
