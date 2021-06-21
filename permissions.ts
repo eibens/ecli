@@ -26,7 +26,7 @@ export type Permission = {
   /**
    * The specific value for the permission.
    */
-  value?: string;
+  value?: Node;
 };
 
 export type Permissions = {

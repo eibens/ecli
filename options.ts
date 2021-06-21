@@ -24,7 +24,7 @@ export type Flag = {
   /**
    * Text that describes the syntax of the option's value.
    */
-  value?: string;
+  value?: Node;
 };
 
 export function Flag(opts: Flag): Node {
