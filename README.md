@@ -19,27 +19,8 @@ module into a well documented CLI.
 
 # Documentation
 
-[ecli] is still in a very early phase and may be subject to significant changes,
-refactoring, and deprecation. The code is currently divided into multiple
-thematic parts:
-
-- [log.ts](log.ts) defines functions for printing to the console or streams.
-- [text.ts](text.ts) defines lower level components for formatting text.
-- [options.ts](options.ts) defines components for documenting arguments and
-  flags.
-- [permissions.ts](permissions.ts) defines components for documenting [Deno]
-  permissions.
-- [usage.ts](usage.ts) defines components for documenting installation and usage
-  with [Deno].
-- [history.ts](history.ts) defines components for outputting temporal data and
-  events.
-- [help.ts](help.ts) defines components for outputting a help page.
-- [mod.ts](mod.ts) exports the above modules.
-
-There are no unit tests yet, but components can be visually tested by running
-the corresponding `<name>_demo.ts` module. For example, the
-[mod.ts](permissions.ts) module may be tested by running `deno run mod_demo.ts`
-and examining the output.
+Documentation is not yet available. [ecli] is still in a very early phase and
+may be subject to significant changes, refactoring, and deprecation.
 
 [ecli]: #
 [deno]: https://deno.land

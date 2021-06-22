@@ -5,11 +5,11 @@ import {
   CommandLine,
   Definition,
   Heading,
+  Optional,
   Url,
   Words,
-} from "./text.ts";
-import emoji from "./emoji.ts";
-import { Optional } from "./options.ts";
+} from "./core.ts";
+import { Emoji } from "./emoji.ts";
 
 export type Usage = {
   binary: string;
@@ -20,10 +20,15 @@ export type Usage = {
 
 export function Usage(opts: Usage): Node {
   return Blocks(
-    Heading(emoji.questionMark, "Usage"),
+    Heading(Emoji("questionMark"), "Usage"),
     Definition(
       CommandLine(opts.binary, ...(opts.args ? [opts.args] : [])),
       "Run local installation.",
+    ),
+    Words(
+      "Deno",
+      Border(["(", ")"], Url("https://deno.land")),
+      "is needed to run or install this program.",
     ),
     Definition(
       CommandLine(
@@ -33,7 +38,7 @@ export function Usage(opts: Usage): Node {
         Url(opts.module),
         ...(opts.args ? [opts.args] : []),
       ),
-      "Run from URL with Deno.",
+      "Run most recent version.",
     ),
     Definition(
       CommandLine(
@@ -42,12 +47,7 @@ export function Usage(opts: Usage): Node {
         ...(opts.permissions ? [Optional("permissions")] : []),
         Url(opts.module),
       ),
-      "Install locally with Deno.",
-    ),
-    Words(
-      "Deno",
-      Border(["(", ")"], Url("https://deno.land")),
-      "is needed to run or install this program.",
+      "Install most recent version.",
     ),
   );
 }

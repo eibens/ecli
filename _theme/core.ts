@@ -106,6 +106,7 @@ export type Demo<O extends unknown[]> = {
 export function Demo<O extends unknown[]>(opts: Demo<O>) {
   return Sections(
     Lines(
+      "",
       Divider(),
       {
         commands: [["gray"]],
@@ -119,4 +120,18 @@ export function Demo<O extends unknown[]>(opts: Demo<O>) {
     opts.func(...opts.input),
     "",
   );
+}
+
+export function Required(...children: Node[]): Node {
+  return {
+    commands: [["italic"]],
+    children: [Border(["<", ">"], ...children)],
+  };
+}
+
+export function Optional(...children: Node[]): Node {
+  return {
+    commands: [["italic"], ["gray"]],
+    children: [Border(["[", "]"], ...children)],
+  };
 }

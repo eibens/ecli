@@ -1,1 +1,1 @@
-import "./mod_demo.ts";
+import "./mod.ts";

@@ -1,5 +1,7 @@
 // NOTE: The emojis are kept in their own file since apparently they can mess up the test coverage analysis (see https://github.com/denoland/deno/issues/10936).
 export default {
+  scroll: "📜",
+  megaphone: "📣",
   surf: "🏄",
   questionMark: "❓",
   alert: "🚨",
@@ -10,4 +12,11 @@ export default {
   globeWithMeridians: "🌐",
   checkMarkButton: "✅",
   greenSquare: "🟩",
+  orangeSquare: "🟧",
+  yellowSquare: "🟨",
+  blueSquare: "🟦",
+  redSquare: "🟥",
+  purpleSquare: "🟪",
+  brownSquare: "🟫",
+  zzz: "💤",
 };

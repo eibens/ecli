@@ -1,39 +1,26 @@
 import { Node } from "https://deno.land/x/ansiml@v0.0.3/mod.ts";
 import { Options } from "./options.ts";
 import { Permissions } from "./permissions.ts";
-import { Blocks, Definition, Heading, Sections, Url } from "./text.ts";
+import { Sections } from "./core.ts";
 import { Usage } from "./usage.ts";
-import emoji from "./emoji.ts";
+import { Header } from "./header.ts";
+import { Links } from "./links.ts";
 
 export type Help = {
-  icon: Node;
-  name: string;
-  description: string;
-  repository?: string;
+  header: Header;
   usage?: Usage;
   permissions?: Permissions;
   options?: Options;
+  links?: Links;
 };
 
 export function Help(opts: Help): Node {
-  const title = Blocks(
-    Heading(opts.icon, opts.name),
-    opts.description,
-  );
   const usage = opts.usage ? [Usage(opts.usage)] : [];
   const permissions = opts.permissions ? [Permissions(opts.permissions)] : [];
   const options = opts.options ? [Options(opts.options)] : [];
-  const links = opts.repository
-    ? [Blocks(
-      Heading(emoji.globeWithMeridians, "Links"),
-      Definition(
-        Url(opts.repository),
-        "Source code repository.",
-      ),
-    )]
-    : [];
+  const links = opts.links ? [Links(opts.links)] : [];
   return Sections(
-    title,
+    Header(opts.header),
     ...usage,
     ...permissions,
     ...options,
