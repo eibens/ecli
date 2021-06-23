@@ -12,7 +12,6 @@ export type Process = {
   args: string[];
   stdout: Deno.Writer;
   stdin: Deno.Reader;
-  stderr: Deno.Writer;
 };
 
 export type ServeOptions = {
