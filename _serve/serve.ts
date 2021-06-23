@@ -2,7 +2,7 @@ import { Node } from "https://deno.land/x/ansiml@v0.0.3/mod.ts";
 import { hasHelpFlag } from "./flags.ts";
 import { logWriter } from "../log.ts";
 import { CloseSection, Docs, HintSection, Log, OpenSection } from "./theme.ts";
-import { readUntilAsync } from "./read.ts";
+import { readUntil } from "./read.ts";
 
 export type Closer = {
   close: () => Promise<void>;
@@ -53,20 +53,17 @@ export async function serve(options: ServeOptions): Promise<void> {
   await log(OpenSection(options.docs.header));
   const closer = options.start(server);
 
-  const input = await readUntilAsync(options.process.stdin, async (x) => {
+  await readUntil(options.process.stdin, async (x) => {
     if (x === "q") {
       return "close";
     }
-    const name = options.docs.usage?.binary || options.docs.header.name;
-    await log(HintSection({ name }));
+    await log(HintSection({
+      name: options.docs.header.name,
+    }));
     return null;
   });
 
-  if (input === "close") {
-    await closer.close();
-    await server.close();
-    return;
-  }
-
-  throw new Error("serve: unknown state");
+  await closer.close();
+  await server.close();
+  return;
 }

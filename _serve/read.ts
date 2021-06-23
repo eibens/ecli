@@ -2,13 +2,6 @@ import { readLines } from "https://deno.land/std@0.97.0/io/mod.ts";
 
 export async function readUntil<Y = string>(
   reader: Deno.Reader,
-  match: (x: string) => null | Y,
-): Promise<Y> {
-  return await readUntilAsync(reader, (x) => Promise.resolve(match(x)));
-}
-
-export async function readUntilAsync<Y = string>(
-  reader: Deno.Reader,
   match: (x: string) => Promise<null | Y>,
 ): Promise<Y> {
   for await (const line of readLines(reader)) {
