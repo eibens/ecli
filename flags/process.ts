@@ -16,17 +16,27 @@ async function log(writer: Deno.Writer, text: string) {
 
 /** MAIN **/
 
-export type ProcessOptions<T> = {
+export type CommandContext = {
+  stdin: Deno.Reader;
+  stdout: Deno.Writer;
+  stderr: Deno.Writer;
+  args: string[];
+};
+
+export type CommandOptions<T> = {
   type: Struct<T, { [K in keyof T]: Struct<T[K]> }>;
   help: Omit<HelpOptions<T>, "type">;
   defaults?: Partial<T>;
   stdout: Deno.Writer;
-  run: (args: string[], options: T) => void | Promise<void>;
+  run: (
+    context: CommandContext,
+    options: T,
+  ) => void | Promise<void>;
 };
 
 export async function process<T>(
-  args: string[],
-  options: ProcessOptions<T>,
+  context: CommandContext,
+  options: CommandOptions<T>,
 ): Promise<void> {
   const { stdout, type, defaults, run } = options;
 
@@ -37,7 +47,7 @@ export async function process<T>(
     }
   }
 
-  const parsed = parse(args, {
+  const parsed = parse(context.args, {
     boolean,
     help: true,
   });
@@ -58,7 +68,10 @@ export async function process<T>(
       defaults,
       type,
     });
-    await run(parsed.args, opts);
+    await run({
+      ...context,
+      args: parsed.args,
+    }, opts);
   } catch (error) {
     await log(stdout, `error: ${error.message}`);
   }
