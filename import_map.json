@@ -1,0 +1,8 @@
+{
+  "imports": {
+    "superstruct": "https://esm.sh/superstruct@0.15.4",
+    "std/": "https://deno.land/std@0.136.0/",
+    "tiny-case": "https://esm.sh/tiny-case@1.0.3",
+    "stable": "https://esm.sh/stable@0.1.8"
+  }
+}
