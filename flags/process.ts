@@ -24,7 +24,10 @@ export type ProcessOptions<T> = {
   run: (args: string[], options: T) => void | Promise<void>;
 };
 
-export async function process<T>(args: string[], options: ProcessOptions<T>): Promise<void> {
+export async function process<T>(
+  args: string[],
+  options: ProcessOptions<T>,
+): Promise<void> {
   const { stdout, type, defaults, run } = options;
 
   const boolean: string[] = [];
