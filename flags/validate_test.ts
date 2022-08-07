@@ -1,7 +1,7 @@
 /** EXTERNALS **/
 
-import { number, object } from "superstruct";
-import { assertEquals, assertThrows } from "std/testing/asserts.ts";
+import { number, object } from "../deps/superstruct.ts";
+import { assertEquals, assertThrows } from "../deps/asserts.ts";
 
 /** LOCALS **/
 

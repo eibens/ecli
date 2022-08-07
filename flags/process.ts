@@ -1,6 +1,6 @@
 /** EXTERNALS **/
 
-import { Struct } from "superstruct";
+import { Struct } from "../deps/superstruct.ts";
 
 /** LOCALS **/
 

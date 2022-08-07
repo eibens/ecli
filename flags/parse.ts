@@ -1,6 +1,6 @@
 /** EXTERNALS **/
 
-import { parse as parseFlags } from "std/flags/mod.ts";
+import { parse as parseFlags } from "../deps/flags.ts";
 
 /** HELPERS **/
 

@@ -1,7 +1,7 @@
 /** EXTERNALS **/
 
-import { kebabCase } from "tiny-case";
-import type { Struct } from "superstruct";
+import { kebabCase } from "https://esm.sh/tiny-case@1.0.3";
+import type { Struct } from "../deps/superstruct.ts";
 
 /** HELPERS **/
 

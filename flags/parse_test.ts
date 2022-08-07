@@ -1,4 +1,4 @@
-import { assertEquals } from "std/testing/asserts.ts";
+import { assertEquals } from "../deps/asserts.ts";
 import { parse } from "./parse.ts";
 
 Deno.test("parse understands boolean flag before positional argument", () => {

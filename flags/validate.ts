@@ -1,6 +1,6 @@
 /** EXTERNALS **/
 
-import { create, defaulted, Struct } from "superstruct";
+import { create, defaulted, Struct } from "../deps/superstruct.ts";
 
 /** MAIN **/
 
